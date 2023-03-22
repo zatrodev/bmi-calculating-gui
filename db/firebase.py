@@ -3,10 +3,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 
 import os
-import json
 from dotenv import load_dotenv
-
-from db.user_info import UserInfo
 
 
 class DatabaseService:
@@ -17,10 +14,8 @@ class DatabaseService:
         return cls.instance
 
     def setup_database(self):
-        load_dotenv()
-
-        CRED = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
-        DATABASE_URL = os.getenv('DATABASE_URL')
+        CRED = "./db/bmi-key.json"
+        DATABASE_URL = "https://bmi-calculating-machine-default-rtdb.asia-southeast1.firebasedatabase.app/"
 
         cred = credentials.Certificate(CRED)
 
