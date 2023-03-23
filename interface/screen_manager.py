@@ -15,8 +15,7 @@ class ScreenManager():
             self.current_screen.grid_remove()
 
         self.current_screen = self.screens[name]
-        print(self.current_screen)
-        self.current_screen.grid()
+        self.current_screen.place(anchor="c", relx=.5, rely=.5)
 
 
 screen_manager = ScreenManager(root)
