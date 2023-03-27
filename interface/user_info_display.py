@@ -48,7 +48,7 @@ class UserInfoDisplay(tk.Frame):
     def search_user(self):
         lrn = self.lrn_entry.get()
 
-        user_info = self.service.get_data_from_reference(f"/{lrn}")
+        user_info = self.service.get_data_from_reference("/{}".format(lrn))
 
         self.name_label.config(text="Name: " +
                                user_info["name"], font=("Arial", 24))
@@ -66,7 +66,7 @@ class UserInfoDisplay(tk.Frame):
             text="Height (m): " + str(user_info["height"]), font=("Arial", 24))
 
         self.bmi_label.config(
-            text=f"BMI: {user_info['bmi']:.2f} ({user_info['classification']})", font=("Arial", 24))
+            text="BMI: {:.2f} ({})".format(user_info['bmi'], user_info['classification']), font=("Arial", 24))
 
         self.nutritional_guide_label.config(
             text=user_info["nutritional_guide"], font=("Arial Bold", 24))
