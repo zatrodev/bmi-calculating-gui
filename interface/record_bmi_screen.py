@@ -25,7 +25,7 @@ class RecordBMIDisplay(tk.Frame):
 
         enter_button = ttk.Button(
             self, text="Enter", command=self.record_bmi)
-        enter_button.grid(row=3, column=0, padx=5, pady=5)
+        enter_button.grid(row=3, column=0, padx=5, pady=(5, 30))
 
         self.weight_label = tk.Label(self, text="")
         self.weight_label.grid(row=6, column=0, padx=5, pady=5)
@@ -47,7 +47,7 @@ class RecordBMIDisplay(tk.Frame):
         age = self.age_entry.get()
         lrn = self.lrn_entry.get()
 
-        if (name == "" or age == "" or lrn == ""):
+        if (name is None or age is None or lrn is None):
             self.label_error["text"] = "Please fill all entry fields."
             return
 
