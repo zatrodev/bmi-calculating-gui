@@ -11,10 +11,6 @@ SECONDARY_FONT_SIZE = 12
 class UserInfoDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
-
-        self.columnconfigure(tuple(range(10)), weight=1)
-        self.rowconfigure(tuple(range(5)), weight=1)
-
         self.db = DatabaseService()
 
         self.lrn_entry = EntryWithPlaceholder(self, "LRN")
@@ -39,7 +35,7 @@ class UserInfoDisplay(tk.Frame):
         self.bmi_label = tk.Label(self, text="")
         self.bmi_label.grid(row=8, column=0, padx=5, pady=5)
 
-        self.nutritional_guide_label = tk.Label(self, text="")
+        self.nutritional_guide_label = tk.Label(self, text="", width=50, height=10)
         self.nutritional_guide_label.grid(row=9, column=0, padx=5, pady=5)
 
         self.empty_labels()
