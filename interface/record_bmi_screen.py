@@ -8,6 +8,9 @@ from interface.entry_with_placeholder import EntryWithPlaceholder
 
 from sensors.sensor_manager import SensorManager
 
+PRIMARY_FONT_SIZE = 18
+SECONDARY_FONT_SIZE = 12
+
 
 class RecordBMIDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
@@ -64,13 +67,13 @@ class RecordBMIDisplay(tk.Frame):
         self.db.insert_user(user_info)
 
         self.weight_label.config(
-            text="Weight (kg): " + str(self.weight), font=("Arial", 24))
+            text="Weight (kg): " + str(self.weight), font=("Arial", PRIMARY_FONT_SIZE))
 
         self.height_label.config(
-            text="Height (m): " + str(self.height), font=("Arial", 24))
+            text="Height (m): " + str(self.height), font=("Arial", PRIMARY_FONT_SIZE))
 
         self.bmi_label.config(
-            text="BMI: {:.2f} ({})".format(user_info.bmi, user_info.classification), font=("Arial", 24))
+            text="BMI: {:.2f} ({})".format(user_info.bmi, user_info.classification), font=("Arial", PRIMARY_FONT_SIZE))
 
         self.nutritional_guide_label.config(
-            text=user_info.nutritional_guide, font=("Arial Bold", 24))
+            text=user_info.nutritional_guide, font=("Arial Bold", SECONDARY_FONT_SIZE))

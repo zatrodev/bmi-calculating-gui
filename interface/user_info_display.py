@@ -4,6 +4,9 @@ from tkinter import ttk
 from interface.entry_with_placeholder import EntryWithPlaceholder
 from db.sql_db import DatabaseService
 
+PRIMARY_FONT_SIZE = 18
+SECONDARY_FONT_SIZE = 12
+
 
 class UserInfoDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
@@ -44,31 +47,32 @@ class UserInfoDisplay(tk.Frame):
 
         if user_info:
             self.name_label.config(text="Name: " +
-                                   user_info.name, font=("Arial", 24), fg="#000")
+                                   user_info.name, font=("Arial", PRIMARY_FONT_SIZE), fg="#000")
 
             self.age_label.config(text="Age: " +
-                                  str(user_info.age), font=("Arial", 24))
+                                  str(user_info.age), font=("Arial", PRIMARY_FONT_SIZE))
 
             self.weight_label.config(
-                text="Weight (kg): " + str(user_info.weight), font=("Arial", 24))
+                text="Weight (kg): " + str(user_info.weight), font=("Arial", PRIMARY_FONT_SIZE))
 
             self.height_label.config(
-                text="Height (m): " + str(user_info.height), font=("Arial", 24))
+                text="Height (m): " + str(user_info.height), font=("Arial", PRIMARY_FONT_SIZE))
 
             self.bmi_label.config(
-                text="BMI: {:.2f} ({})".format(user_info.bmi, user_info.classification), font=("Arial", 24))
+                text="BMI: {:.2f} ({})".format(user_info.bmi, user_info.classification), font=("Arial", PRIMARY_FONT_SIZE))
 
             self.nutritional_guide_label.config(
-                text=user_info.nutritional_guide, font=("Arial Bold", 24))
+                text=user_info.nutritional_guide, font=("Arial Bold", SECONDARY_FONT_SIZE))
         else:
             self.empty_labels()
             self.name_label.config(text="Invalid user with lrn \"{}\"".format(
-                lrn), font=("Arial", 24), fg="#f00")
+                lrn), font=("Arial", PRIMARY_FONT_SIZE), fg="#f00")
 
     def empty_labels(self):
-        self.name_label.config(text="", font=("Arial", 24))
-        self.age_label.config(text="", font=("Arial", 24))
-        self.weight_label.config(text="", font=("Arial", 24))
-        self.height_label.config(text="", font=("Arial", 24))
-        self.bmi_label.config(text="", font=("Arial", 24))
-        self.nutritional_guide_label.config(text="", font=("Arial", 24))
+        self.name_label.config(text="", font=("Arial", PRIMARY_FONT_SIZE))
+        self.age_label.config(text="", font=("Arial", PRIMARY_FONT_SIZE))
+        self.weight_label.config(text="", font=("Arial", PRIMARY_FONT_SIZE))
+        self.height_label.config(text="", font=("Arial", PRIMARY_FONT_SIZE))
+        self.bmi_label.config(text="", font=("Arial", PRIMARY_FONT_SIZE))
+        self.nutritional_guide_label.config(
+            text="", font=("Arial", PRIMARY_FONT_SIZE))
