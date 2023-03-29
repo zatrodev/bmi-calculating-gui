@@ -43,6 +43,8 @@ class RecordBMIDisplay(tk.Frame):
         self.label_error.grid(row=1, column=0, sticky=tk.S, padx=5)
 
     def record_bmi(self):
+        self.label_error["text"] = ""
+
         name = self.name_entry.get()
         age = self.age_entry.get()
         lrn = self.lrn_entry.get()
