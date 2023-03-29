@@ -38,7 +38,7 @@ class UserInfoDisplay(tk.Frame):
         self.nutritional_guide_label = tk.Label(
             self, text="", width=75)
         self.nutritional_guide_label.grid(
-            row=9, column=0, padx=5, pady=5, rowspan=3)
+            row=9, column=0, padx=5, pady=5, rowspan=3, sticky=tk.N+tk.S)
 
         self.empty_labels()
 
