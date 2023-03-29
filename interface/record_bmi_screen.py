@@ -40,7 +40,7 @@ class RecordBMIDisplay(tk.Frame):
         self.nutritional_guide_label.grid(row=9, column=0, padx=5, pady=5)
 
         self.label_error = ttk.Label(self, foreground='red')
-        self.label_error.grid(row=1, column=0, sticky=tk.S, padx=5)
+        self.label_error.grid(row=10, column=0, sticky=tk.S, padx=5)
 
     def record_bmi(self):
         self.label_error["text"] = ""
