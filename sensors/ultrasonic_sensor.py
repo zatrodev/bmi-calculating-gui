@@ -13,27 +13,25 @@ print("Distance Measurement In Progress")
 gpio.setcfg(TRIG, gpio.OUTPUT)
 gpio.setcfg(ECHO, gpio.INPUT)
 
-gpio.output(TRIG, 0)
+while True:
+    gpio.output(TRIG, 0)
+    print("Waiting For Sensor To Settle")
+    time.sleep(2)
 
-print("Waiting For Sensor To Settle")
+    gpio.output(TRIG, 1)
+    time.sleep(0.00001)
+    gpio.output(TRIG, 0)
 
-time.sleep(2)
-gpio.output(TRIG, 1)
-time.sleep(0.00001)
-gpio.output(TRIG, 0)
+    while gpio.input(ECHO) == 0:
+        pulse_start = time.time()
 
-while gpio.input(ECHO) == 0:
-    print(gpio.input(ECHO))
-    pulse_start = time.time()
+    while gpio.input(ECHO) == 1:
+        pulse_end = time.time()
 
-while gpio.input(ECHO) == 1:
-    print(gpio.input(ECHO))
-    pulse_end = time.time()
+    pulse_duration = pulse_end - pulse_start
 
-pulse_duration = pulse_end - pulse_start
+    distance = pulse_duration * 17150
 
-distance = pulse_duration * 17150
+    distance = round(distance, 2)
 
-distance = round(distance, 2)
-
-print("Distance: " + str(distance) + "cm")
+    print("Distance: " + str(distance) + "cm")
