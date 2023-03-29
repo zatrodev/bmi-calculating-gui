@@ -39,7 +39,7 @@ class RecordBMIDisplay(tk.Frame):
         self.bmi_label = tk.Label(self, text="")
         self.bmi_label.grid(row=8, column=0, padx=5, pady=5)
 
-        self.nutritional_guide_label = tk.Label(self, text="")
+        self.nutritional_guide_label = tk.Message(self, text="", width=750)
         self.nutritional_guide_label.grid(row=9, column=0, padx=5, pady=5)
 
         self.label_error = ttk.Label(self, foreground='red')
@@ -76,4 +76,4 @@ class RecordBMIDisplay(tk.Frame):
             text="BMI: {:.2f} ({})".format(user_info.bmi, user_info.classification), font=("Arial", PRIMARY_FONT_SIZE))
 
         self.nutritional_guide_label.config(
-            text=user_info.nutritional_guide, font=("Arial Bold", SECONDARY_FONT_SIZE))
+            text=user_info.nutritional_guide, font=("Arial Bold", SECONDARY_FONT_SIZE), width=750)

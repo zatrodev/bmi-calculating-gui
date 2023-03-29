@@ -77,4 +77,4 @@ class UserInfoDisplay(tk.Frame):
         self.height_label.config(text="", font=("Arial", PRIMARY_FONT_SIZE))
         self.bmi_label.config(text="", font=("Arial", PRIMARY_FONT_SIZE))
         self.nutritional_guide_label.config(
-            text="", font=("Arial", SECONDARY_FONT_SIZE))
+            text="", font=("Arial", SECONDARY_FONT_SIZE), width=750)
