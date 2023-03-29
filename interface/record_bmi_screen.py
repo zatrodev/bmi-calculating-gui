@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import time
 
 from db.user_info import UserInfo
 from db.sql_db import DatabaseService
@@ -13,17 +14,22 @@ class RecordBMIDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
         self.db = DatabaseService()
-        
-        getting_bmi_label = tk.Label(self, text="Getting BMI...",
-                                     font=("Arial Bold", 36))
-        getting_bmi_label.pack()
+
+        self.getting_bmi_label = tk.Label(self, text="Getting BMI...",
+                                          font=("Arial Bold", 36))
+        self.getting_bmi_label.pack()
+
+        self.get_measurements()
+
+    def get_measurements(self):
+        time.sleep(1)
 
         self.height = SensorManager.get_height()
         self.weight = SensorManager.get_weight()
 
         print(self.height)
 
-        getting_bmi_label.pack_forget()
+        self.getting_bmi_label.pack_forget()
 
         self.name_entry = EntryWithPlaceholder(self, "Name")
         self.name_entry.grid(row=0, column=0, padx=5, pady=5)
