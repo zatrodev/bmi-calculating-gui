@@ -34,12 +34,7 @@ class UserInfoDisplay(tk.Frame):
         self.nutritional_guide_label = tk.Label(self, text="")
         self.nutritional_guide_label.grid(row=9, column=0, padx=5, pady=5)
 
-        self.name_label.config(text="", font=("Arial", 24))
-        self.age_label.config(text="", font=("Arial", 24))
-        self.weight_label.config(text="", font=("Arial", 24))
-        self.height_label.config(text="", font=("Arial", 24))
-        self.bmi_label.config(text="", font=("Arial", 24))
-        self.nutritional_guide_label.config(text="", font=("Arial", 24))
+        self.empty_labels()
 
     def search_user(self):
         lrn = self.lrn_entry.get()
@@ -70,8 +65,9 @@ class UserInfoDisplay(tk.Frame):
                 lrn), font=("Arial", 24), fg="#f00")
 
     def empty_labels(self):
-        self.age_label.config(text="")
-        self.weight_label.config(text="")
-        self.height_label.config(text="")
-        self.bmi_label.config(text="")
-        self.nutritional_guide_label.config(text="")
+        self.name_label.config(text="", font=("Arial", 24))
+        self.age_label.config(text="", font=("Arial", 24))
+        self.weight_label.config(text="", font=("Arial", 24))
+        self.height_label.config(text="", font=("Arial", 24))
+        self.bmi_label.config(text="", font=("Arial", 24))
+        self.nutritional_guide_label.config(text="", font=("Arial", 24))
