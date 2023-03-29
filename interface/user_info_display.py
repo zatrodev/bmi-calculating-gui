@@ -33,11 +33,12 @@ class UserInfoDisplay(tk.Frame):
         self.height_label.grid(row=7, column=0, padx=5, pady=5)
 
         self.bmi_label = tk.Label(self, text="")
-        self.bmi_label.grid(row=8, column=0, padx=5, pady=5)
+        self.bmi_label.grid(row=8, column=0, padx=5, pady=(5, 15))
 
         self.nutritional_guide_label = tk.Label(
-            self, text="", width=50, height=3)
-        self.nutritional_guide_label.grid(row=9, column=0, padx=5, pady=5)
+            self, text="", width=75)
+        self.nutritional_guide_label.grid(
+            row=9, column=0, padx=5, pady=5, rowspan=3)
 
         self.empty_labels()
 
