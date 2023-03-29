@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-import time
 
 from db.user_info import UserInfo
 from db.sql_db import DatabaseService
@@ -14,22 +13,6 @@ class RecordBMIDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
         self.db = DatabaseService()
-
-        self.getting_bmi_label = tk.Label(self, text="Getting BMI...",
-                                          font=("Arial Bold", 36))
-        self.getting_bmi_label.pack()
-
-        self.get_measurements()
-
-    def get_measurements(self):
-        time.sleep(1)
-
-        self.height = SensorManager.get_height()
-        self.weight = SensorManager.get_weight()
-
-        print(self.height)
-
-        self.getting_bmi_label.pack_forget()
 
         self.name_entry = EntryWithPlaceholder(self, "Name")
         self.name_entry.grid(row=0, column=0, padx=5, pady=5)
@@ -56,10 +39,20 @@ class RecordBMIDisplay(tk.Frame):
         self.nutritional_guide_label = tk.Label(self, text="")
         self.nutritional_guide_label.grid(row=9, column=0, padx=5, pady=5)
 
+        self.label_error = ttk.Label(self, foreground='red')
+        self.label_error.grid(row=1, column=1, sticky=tk.S, padx=5)
+
     def record_bmi(self):
         name = self.name_entry.get()
         age = self.age_entry.get()
         lrn = self.lrn_entry.get()
+
+        if (name == "" or age == "" or lrn == ""):
+            self.label_error["text"] = "Please fill all entry fields."
+            return
+
+        self.height = SensorManager.get_height()
+        self.weight = SensorManager.get_weight()
 
         user_info = UserInfo(name, age, lrn, self.weight,
                              self.height)
