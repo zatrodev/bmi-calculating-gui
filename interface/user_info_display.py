@@ -35,10 +35,10 @@ class UserInfoDisplay(tk.Frame):
         self.bmi_label = tk.Label(self, text="")
         self.bmi_label.grid(row=8, column=0, padx=5, pady=(5, 15))
 
-        self.nutritional_guide_label = tk.Label(
-            self, text="", width=75)
+        self.nutritional_guide_label = tk.Message(
+            self, text="")
         self.nutritional_guide_label.grid(
-            row=9, column=0, padx=5, pady=5, rowspan=3, sticky=tk.N+tk.S)
+            row=9, column=0, padx=5, pady=5)
 
         self.empty_labels()
 
