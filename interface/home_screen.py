@@ -5,7 +5,7 @@ from interface.screen_manager import screen_manager
 
 
 class HomeScreen(tk.Frame):
-    def __init__(self, master, *args, **kwargs):
+    def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
 
         self.command_entry = tk.Entry(self)
