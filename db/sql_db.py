@@ -38,3 +38,5 @@ class DatabaseService:
 #     print(user1.weight)
 # else:
 #     print("Invalid user")
+
+db_service = DatabaseService()

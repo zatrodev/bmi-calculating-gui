@@ -8,10 +8,8 @@ class HomeScreen(tk.Frame):
     def __init__(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
 
-        self.command_text = tk.StringVar()
-
-        command = tk.Entry(self, textvariable=self.command_text)
-        command.grid(row=0, column=1, padx=5, pady=5)
+        self.command_entry = tk.Entry(self)
+        self.command_entry.grid(row=0, column=1, padx=5, pady=5)
 
         style = ttk.Style()
         style.configure('W.TButton', font=('calibri', 14, 'bold'))
@@ -27,7 +25,7 @@ class HomeScreen(tk.Frame):
         second_label.grid(row=4, column=1, padx=5, pady=5)
 
     def process_command(self):
-        command = self.command_text.get()
+        command = self.command_entry.get()
 
         if command == "1":
             screen_manager.switch_screen("")

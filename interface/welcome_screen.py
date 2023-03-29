@@ -7,10 +7,10 @@ class WelcomeScreen(tk.Frame):
         self.master = master
 
         title_label = tk.Label(self, text="BMI Calculating Machine",
-                               font=("Arial Bold", 36), bg="#f0f0f0")
+                               font=("Arial Bold", 36))
 
         subtitle_label = tk.Label(
-            self, text="Step on the scale to begin.", font=("Arial", 24), bg="#f0f0f0")
+            self, text="Step on the scale to begin.", font=("Arial", 24))
 
         title_label.pack()
         subtitle_label.pack()
