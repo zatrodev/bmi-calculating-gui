@@ -34,4 +34,4 @@ class HomeScreen(tk.Frame):
         else:
             print("Invalid command.")
 
-        self.command_text.set("")
+        self.command_entry.delete(0, tk.END)
