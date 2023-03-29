@@ -14,7 +14,7 @@ class UserInfoDisplay(tk.Frame):
 
         search_button = ttk.Button(
             self, text="Search User", command=self.search_user)
-        search_button.grid(row=1, column=0, padx=5, pady=5)
+        search_button.grid(row=1, column=0, padx=5, pady=15)
 
         self.name_label = tk.Label(self, text="")
         self.name_label.grid(row=4, column=0, padx=5, pady=5)
