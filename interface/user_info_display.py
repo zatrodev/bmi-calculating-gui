@@ -8,7 +8,7 @@ from db.sql_db import DatabaseService
 class UserInfoDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
-        self.service = DatabaseService()
+        self.db = DatabaseService()
 
         self.lrn_entry = EntryWithPlaceholder(self, "LRN")
         self.lrn_entry.grid(row=0, column=0, padx=5, pady=5)
@@ -40,7 +40,7 @@ class UserInfoDisplay(tk.Frame):
     def search_user(self):
         lrn = self.lrn_entry.get()
 
-        user_info = self.service.get_user_by_lrn(str(lrn))
+        user_info = self.db.get_user_by_lrn(str(lrn))
 
         if user_info:
             self.name_label.config(text="Name: " +

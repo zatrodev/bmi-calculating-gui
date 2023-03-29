@@ -4,6 +4,12 @@ from db.user_info import UserInfo
 
 
 class DatabaseService:
+    def __new__(cls):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super(DatabaseService, cls).__new__(cls)
+        
+        return cls.instance
+
     def __init__(self):
         self.conn = sqlite3.connect('users.db')
         self.c = self.conn.cursor()
@@ -38,4 +44,3 @@ class DatabaseService:
 #     print(user1.weight)
 # else:
 #     print("Invalid user")
-

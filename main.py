@@ -6,7 +6,9 @@ from interface.home_screen import HomeScreen
 from interface.user_info_display import UserInfoDisplay
 from interface.record_bmi_screen import RecordBMIDisplay
 
-from db.sql_db import db_service
+from db.sql_db import DatabaseService
+
+db = DatabaseService()
 
 home_screen = HomeScreen()
 user_info_screen = UserInfoDisplay()
@@ -18,5 +20,5 @@ screen_manager.add_screen("record_bmi", record_bmi_screen)
 
 screen_manager.switch_screen("home")
 
-db_service.close()
+db.close()
 root.mainloop()
