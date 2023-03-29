@@ -23,9 +23,11 @@ time.sleep(0.00001)
 gpio.output(TRIG, 0)
 
 while gpio.input(ECHO) == 0:
+    print(gpio.input(ECHO))
     pulse_start = time.time()
 
 while gpio.input(ECHO) == 1:
+    print(gpio.input(ECHO))
     pulse_end = time.time()
 
 pulse_duration = pulse_end - pulse_start
