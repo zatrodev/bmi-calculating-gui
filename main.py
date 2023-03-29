@@ -8,9 +8,9 @@ from interface.record_bmi_screen import RecordBMIDisplay
 
 from db.sql_db import db_service
 
-home_screen = HomeScreen(root)
-user_info_screen = UserInfoDisplay(root)
-record_bmi_screen = RecordBMIDisplay(root)
+home_screen = HomeScreen()
+user_info_screen = UserInfoDisplay()
+record_bmi_screen = RecordBMIDisplay()
 
 screen_manager.add_screen("home", home_screen)
 screen_manager.add_screen("user_info", user_info_screen)
