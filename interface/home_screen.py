@@ -9,23 +9,23 @@ class HomeScreen(tk.Frame):
         super().__init__(master, *args, **kwargs)
 
         self.command_entry = tk.Entry(self)
-        self.command_entry.grid(row=0, column=1, padx=5, pady=5)
+        self.command_entry.grid(row=0, column=0, padx=5, pady=5)
 
         style = ttk.Style()
         style.configure('W.TButton', font=('calibri', 14, 'bold'))
 
         enter_button = ttk.Button(
             self, text="Enter Command", style="W.TButton", command=self.process_command)
-        enter_button.grid(row=1, column=1, padx=15, pady=10)
+        enter_button.grid(row=1, column=0, padx=15, pady=10)
 
         first_label = tk.Label(self, text="1: Record BMI")
-        first_label.grid(row=3, column=1, padx=5, pady=5)
+        first_label.grid(row=3, column=0, padx=5, pady=5)
 
         second_label = tk.Label(self, text="2: BMI Display")
-        second_label.grid(row=4, column=1, padx=5, pady=5)
+        second_label.grid(row=4, column=0, padx=5, pady=5)
 
         self.label_error = ttk.Label(self, foreground='red')
-        self.label_error.grid(row=1, column=1, sticky=tk.S, padx=5)
+        self.label_error.grid(row=1, column=0, sticky=tk.S, padx=5)
 
     def process_command(self):
         command = self.command_entry.get()
