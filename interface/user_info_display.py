@@ -1,15 +1,16 @@
 import tkinter as tk
 from tkinter import ttk
 
+from interface.entry_with_placeholder import EntryWithPlaceholder
 from db.sql_db import DatabaseService
 
 
 class UserInfoDisplay(tk.Frame):
-    def __init__(self, master, *args, **kwargs):
+    def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
         self.service = DatabaseService()
 
-        self.lrn_entry = tk.Entry(self)
+        self.lrn_entry = EntryWithPlaceholder(self, "LRN")
         self.lrn_entry.grid(row=0, column=0, padx=5, pady=5)
 
         search_button = ttk.Button(

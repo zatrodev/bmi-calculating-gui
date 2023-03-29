@@ -6,29 +6,22 @@ from db.sql_db import db_service
 
 from interface.entry_with_placeholder import EntryWithPlaceholder
 
-from sensors.sensor_manager import sensor_manager
+from sensors.sensor_manager import SensorManager
 
 
 class RecordBMIDisplay(tk.Frame):
-    def __init__(self, master, *args, **kwargs):
+    def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
 
-        title_label = tk.Label(self, text="Getting BMI...",
-                               font=("Arial Bold", 36))
+        getting_bmi_label = tk.Label(self, text="Getting BMI...",
+                                     font=("Arial Bold", 36))
 
-        subtitle_label = tk.Label(
-            self, text="Step on the scale to begin.", font=("Arial", 24), bg="#f0f0f0")
-
-        title_label.pack()
-        subtitle_label.pack()
-
-        self.height = sensor_manager.get_height()
-        self.weight = sensor_manager.get_weight()
+        self.height = SensorManager.get_height()
+        self.weight = SensorManager.get_weight()
 
         print(self.height)
 
-        title_label.pack_forget()
-        subtitle_label.forget()
+        getting_bmi_label.pack_forget()
 
         self.name_entry = EntryWithPlaceholder(self, "Name")
         self.name_entry.grid(row=0, column=0, padx=5, pady=5)

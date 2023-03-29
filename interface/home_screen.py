@@ -28,7 +28,7 @@ class HomeScreen(tk.Frame):
         command = self.command_entry.get()
 
         if command == "1":
-            screen_manager.switch_screen("")
+            screen_manager.switch_screen("record_bmi")
         elif command == "2":
             screen_manager.switch_screen("user_info")
         else:
