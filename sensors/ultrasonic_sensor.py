@@ -1,24 +1,37 @@
-from gpiozero import DistanceSensor
+from pyA20.gpio import gpio
+from pyA20.gpio import port
 import time
 
-# Define GPIO pins for the trigger and echo pins of the ultrasonic sensor
-TRIG_PIN = 18
-ECHO_PIN = 24
+# pins that will connect hc-sr04 to the orange pi pcb
+TRIG = port.PA7
+ECHO = port.PA8
 
-# Set up the ultrasonic sensor with the trigger and echo pins
-sensor = DistanceSensor(echo=ECHO_PIN, trigger=TRIG_PIN)
+gpio.init()
 
-try:
-    while True:
-        # Read distance from ultrasonic sensor
-        distance = sensor.distance * 100  # convert to centimeters
+print("Distance Measurement In Progress")
 
-        # Print distance to console
-        print("Distance: {:.2f} cm".format(distance))
+gpio.setcfg(TRIG, gpio.OUTPUT)
+gpio.setcfg(ECHO, gpio.INPUT)
 
-        # Wait for a little bit before taking another reading
-        time.sleep(0.5)
+gpio.output(TRIG, 0)
 
-except KeyboardInterrupt:
-    # Clean up GPIO pins on keyboard interrupt
-    sensor.close()
+print("Waiting For Sensor To Settle")
+
+time.sleep(2)
+gpio.output(TRIG, 1)
+time.sleep(0.00001)
+gpio.output(TRIG, 0)
+
+while gpio.input(ECHO) == 0:
+    pulse_start = time.time()
+
+while gpio.input(ECHO) == 1:
+    pulse_end = time.time()
+
+pulse_duration = pulse_end - pulse_start
+
+distance = pulse_duration * 17150
+
+distance = round(distance, 2)
+
+print("Distance: " + str(distance) + "cm")
