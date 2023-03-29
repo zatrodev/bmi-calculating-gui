@@ -5,6 +5,8 @@ import time
 TRIG = port.PA7
 ECHO = port.PA8
 
+gpio.init()
+
 gpio.setcfg(TRIG, gpio.OUTPUT)
 gpio.setcfg(ECHO, gpio.INPUT)
 
