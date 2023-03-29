@@ -13,8 +13,10 @@ class RecordBMIDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
         self.db = DatabaseService()
+        
         getting_bmi_label = tk.Label(self, text="Getting BMI...",
                                      font=("Arial Bold", 36))
+        getting_bmi_label.pack()
 
         self.height = SensorManager.get_height()
         self.weight = SensorManager.get_weight()
