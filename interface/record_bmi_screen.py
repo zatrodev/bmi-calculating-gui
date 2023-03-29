@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from db.user_info import UserInfo
-from db.sql_db import db_service
+from db.sql_db import DatabaseService
 
 from interface.entry_with_placeholder import EntryWithPlaceholder
 
@@ -12,7 +12,7 @@ from sensors.sensor_manager import SensorManager
 class RecordBMIDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
-
+        self.service = DatabaseService()
         getting_bmi_label = tk.Label(self, text="Getting BMI...",
                                      font=("Arial Bold", 36))
 
@@ -56,7 +56,7 @@ class RecordBMIDisplay(tk.Frame):
         user_info = UserInfo(name, age, lrn, self.weight,
                              self.height)
 
-        db_service.insert_user(user_info)
+        self.service.insert_user(user_info)
 
         self.weight_label.config(
             text="Weight (kg): " + str(self.weight), font=("Arial", 24))

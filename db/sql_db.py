@@ -39,4 +39,3 @@ class DatabaseService:
 # else:
 #     print("Invalid user")
 
-db_service = DatabaseService()
