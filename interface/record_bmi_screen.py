@@ -49,7 +49,7 @@ class RecordBMIDisplay(tk.Frame):
 
         print(name, age, lrn)
 
-        if (name is None or age is None or lrn is None):
+        if (name == "Name" or age == "Age" or lrn == "LRN"):
             self.label_error["text"] = "Please fill all entry fields."
             return
 
