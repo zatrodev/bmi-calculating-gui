@@ -35,7 +35,8 @@ class UserInfoDisplay(tk.Frame):
         self.bmi_label = tk.Label(self, text="")
         self.bmi_label.grid(row=8, column=0, padx=5, pady=5)
 
-        self.nutritional_guide_label = tk.Label(self, text="", width=50, height=10)
+        self.nutritional_guide_label = tk.Label(
+            self, text="", width=50, height=3)
         self.nutritional_guide_label.grid(row=9, column=0, padx=5, pady=5)
 
         self.empty_labels()
@@ -75,4 +76,4 @@ class UserInfoDisplay(tk.Frame):
         self.height_label.config(text="", font=("Arial", PRIMARY_FONT_SIZE))
         self.bmi_label.config(text="", font=("Arial", PRIMARY_FONT_SIZE))
         self.nutritional_guide_label.config(
-            text="", font=("Arial", PRIMARY_FONT_SIZE))
+            text="", font=("Arial", SECONDARY_FONT_SIZE))
