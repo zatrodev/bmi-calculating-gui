@@ -1,6 +1,6 @@
 from sensors.ultrasonic_sensor import get_distance
 
-HEIGHT_FROM_GROUND = 1.92
+HEIGHT_FROM_GROUND = 1.91
 
 
 class SensorManager:
