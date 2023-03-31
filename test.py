@@ -1,4 +1,4 @@
-from sensors.sensor_manager import SensorManager
+from sensors.ultrasonic_sensor import get_distance
 
 while True:
-    print(SensorManager.get_height())
+    print(get_distance())
