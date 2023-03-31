@@ -6,7 +6,7 @@ HEIGHT_FROM_GROUND = 1.95
 class SensorManager:
     @staticmethod
     def get_height():
-        return HEIGHT_FROM_GROUND - get_distance()
+        return get_distance()
 
     @staticmethod
     def get_weight():
