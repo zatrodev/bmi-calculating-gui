@@ -11,6 +11,8 @@ from sensors.sensor_manager import SensorManager
 PRIMARY_FONT_SIZE = 18
 SECONDARY_FONT_SIZE = 12
 
+HEIGHT_FROM_GROUND = 1.95
+
 
 class RecordBMIDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
@@ -60,6 +62,8 @@ class RecordBMIDisplay(tk.Frame):
             return
 
         self.height = SensorManager.get_height()
+        self.height -= HEIGHT_FROM_GROUND
+
         self.weight = SensorManager.get_weight()
 
         user_info = UserInfo(name, age, lrn, self.weight,
