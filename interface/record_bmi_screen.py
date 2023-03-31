@@ -62,7 +62,7 @@ class RecordBMIDisplay(tk.Frame):
             return
 
         self.height = SensorManager.get_height()
-        self.height -= HEIGHT_FROM_GROUND
+        self.height = HEIGHT_FROM_GROUND - self.height
 
         self.weight = SensorManager.get_weight()
 
