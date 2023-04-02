@@ -23,7 +23,8 @@ screen_manager.switch_screen(name="home")
 root.bind("<Escape>", lambda e: screen_manager.switch_screen(
     name="home", event=e))
 
-tk.Label(root, text="Press ESC to go back to home").pack(tk.BOTTOM, pady=10)
+tk.Label(root, text="Press ESC to go back to home").pack(
+    side=tk.BOTTOM, pady=10)
 
 db.close()
 root.mainloop()
