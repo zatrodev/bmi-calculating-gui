@@ -12,11 +12,9 @@ class ScreenManager():
 
     def switch_screen(self, name, event=""):
         if self.current_screen is not None:
-            for screen in self.screens.values():
-                screen.place_forget()
+            self.current_screen.place_forget()
 
         self.current_screen = self.screens[name]
-        print(name, self.current_screen)
         self.current_screen.init(self.root)
         self.current_screen.place(anchor="c", relx=.5, rely=.5)
 
