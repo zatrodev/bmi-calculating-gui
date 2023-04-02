@@ -21,12 +21,15 @@ class RecordBMIDisplay(tk.Frame):
 
         self.name_entry = EntryWithPlaceholder(self, "Name")
         self.name_entry.grid(row=0, column=0, padx=5, pady=5)
+        self.name_entry.bind("<Return>", self.record_bmi)
 
         self.age_entry = EntryWithPlaceholder(self, "Age")
         self.age_entry.grid(row=1, column=0, padx=5, pady=5)
+        self.age_entry.bind("<Return>", self.record_bmi)
 
         self.lrn_entry = EntryWithPlaceholder(self, "LRN")
         self.lrn_entry.grid(row=2, column=0, padx=5, pady=(5, 20))
+        self.lrn_entry.bind("<Return>", self.record_bmi)
 
         enter_button = ttk.Button(
             self, text="Enter", command=self.record_bmi)
