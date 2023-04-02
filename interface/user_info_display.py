@@ -65,7 +65,7 @@ class UserInfoDisplay(tk.Frame):
                 text="BMI: {:.2f} ({})".format(user_info.bmi, user_info.classification), font=("Arial", PRIMARY_FONT_SIZE))
 
             self.nutritional_guide_label.config(
-                text=user_info.nutritional_guide, font=("Arial Bold", SECONDARY_FONT_SIZE))
+                text=user_info.nutritional_guide, font=("Arial", SECONDARY_FONT_SIZE))
         else:
             self.empty_labels()
             self.name_label.config(text="Invalid user with lrn \"{}\"".format(
