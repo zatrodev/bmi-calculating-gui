@@ -15,7 +15,7 @@ class UserInfoDisplay(tk.Frame):
 
         self.lrn_entry = EntryWithPlaceholder(self, "LRN")
         self.lrn_entry.grid(row=0, column=0, padx=5, pady=5)
-        self.lrn_entry.bind("<Return>", lambda e: self.record_bmi(event=e))
+        self.lrn_entry.bind("<Return>", lambda e: self.search_user(event=e))
 
         search_button = ttk.Button(
             self, text="Search User", command=self.search_user)

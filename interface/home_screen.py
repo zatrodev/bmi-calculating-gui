@@ -10,7 +10,8 @@ class HomeScreen(tk.Frame):
 
         self.command_entry = tk.Entry(self)
         self.command_entry.grid(row=0, column=0, padx=5, pady=5)
-        self.command_entry.bind("<Return>", lambda e: self.record_bmi(event=e))
+        self.command_entry.bind(
+            "<Return>", lambda e: self.process_command(event=e))
 
         style = ttk.Style()
         style.configure('W.TButton', font=('calibri', 14, 'bold'))
