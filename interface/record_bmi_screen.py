@@ -51,7 +51,7 @@ class RecordBMIDisplay(tk.Frame):
         self.label_error = ttk.Label(self, foreground='red')
         self.label_error.grid(row=10, column=0, sticky=tk.S, padx=5)
 
-    def record_bmi(self):
+    def record_bmi(self, event):
         self.label_error["text"] = ""
 
         name = self.name_entry.get()

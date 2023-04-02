@@ -28,7 +28,7 @@ class HomeScreen(tk.Frame):
         self.label_error = ttk.Label(self, foreground='red')
         self.label_error.grid(row=1, column=0, sticky=tk.S, padx=5)
 
-    def process_command(self):
+    def process_command(self, event):
         command = self.command_entry.get()
 
         if command == "1":

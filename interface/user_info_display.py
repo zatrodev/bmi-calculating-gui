@@ -43,7 +43,7 @@ class UserInfoDisplay(tk.Frame):
 
         self.empty_labels()
 
-    def search_user(self):
+    def search_user(self, event):
         lrn = self.lrn_entry.get()
 
         user_info = self.db.get_user_by_lrn(str(lrn))
