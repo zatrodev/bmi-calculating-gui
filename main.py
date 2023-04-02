@@ -18,9 +18,10 @@ screen_manager.add_screen("home", home_screen)
 screen_manager.add_screen("user_info", user_info_screen)
 screen_manager.add_screen("record_bmi", record_bmi_screen)
 
-screen_manager.switch_screen("home", "")
+screen_manager.switch_screen(name="home")
 
-root.bind("<Escape>", screen_manager.switch_screen("home"))
+root.bind("<Escape>", lambda e: screen_manager.switch_screen(
+    name="home", event=e))
 
 db.close()
 root.mainloop()
