@@ -16,6 +16,7 @@ class HomeScreen(tk.Frame):
 
         enter_button = ttk.Button(
             self, text="Enter Command", style="W.TButton", command=self.process_command)
+        enter_button.bind("<Return>", self.process_command)
         enter_button.grid(row=1, column=0, padx=15, pady=10)
 
         first_label = tk.Label(self, text="1: Record BMI")
