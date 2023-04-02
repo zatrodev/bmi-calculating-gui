@@ -10,7 +10,7 @@ class HomeScreen(tk.Frame):
 
         self.command_entry = tk.Entry(self)
         self.command_entry.grid(row=0, column=0, padx=5, pady=5)
-        self.command_entry.bind("<Return>", self.process_command)
+        self.command_entry.bind("<Return>", lambda e: self.record_bmi(event=e))
 
         style = ttk.Style()
         style.configure('W.TButton', font=('calibri', 14, 'bold'))
@@ -28,7 +28,7 @@ class HomeScreen(tk.Frame):
         self.label_error = ttk.Label(self, foreground='red')
         self.label_error.grid(row=1, column=0, sticky=tk.S, padx=5)
 
-    def process_command(self, event):
+    def process_command(self, event=""):
         command = self.command_entry.get()
 
         if command == "1":

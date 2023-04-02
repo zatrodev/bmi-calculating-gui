@@ -15,7 +15,7 @@ class UserInfoDisplay(tk.Frame):
 
         self.lrn_entry = EntryWithPlaceholder(self, "LRN")
         self.lrn_entry.grid(row=0, column=0, padx=5, pady=5)
-        self.lrn_entry.bind("<Return>", self.search_user)
+        self.lrn_entry.bind("<Return>", lambda e: self.record_bmi(event=e))
 
         search_button = ttk.Button(
             self, text="Search User", command=self.search_user)
@@ -43,7 +43,7 @@ class UserInfoDisplay(tk.Frame):
 
         self.empty_labels()
 
-    def search_user(self, event):
+    def search_user(self, event=""):
         lrn = self.lrn_entry.get()
 
         user_info = self.db.get_user_by_lrn(str(lrn))
