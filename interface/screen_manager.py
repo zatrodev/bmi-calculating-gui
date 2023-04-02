@@ -10,7 +10,7 @@ class ScreenManager():
     def add_screen(self, name, screen):
         self.screens[name] = screen
 
-    def switch_screen(self, name):
+    def switch_screen(self, event, name):
         if self.current_screen is not None:
             self.current_screen.grid_remove()
 

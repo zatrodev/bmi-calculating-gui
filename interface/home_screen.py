@@ -32,9 +32,9 @@ class HomeScreen(tk.Frame):
         command = self.command_entry.get()
 
         if command == "1":
-            screen_manager.switch_screen("record_bmi")
+            screen_manager.switch_screen(name="record_bmi")
         elif command == "2":
-            screen_manager.switch_screen("user_info")
+            screen_manager.switch_screen(name="user_info")
         else:
             self.label_error["text"] = "Invalid command."
 
