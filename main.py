@@ -20,7 +20,7 @@ screen_manager.add_screen("record_bmi", record_bmi_screen)
 
 screen_manager.switch_screen(name="home")
 
-root.bind("<Control-H>", lambda: print("Hello"))
+root.bind("<Esc>", lambda: print("Hello"))
 
 db.close()
 root.mainloop()
