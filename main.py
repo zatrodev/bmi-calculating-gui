@@ -18,7 +18,7 @@ screen_manager.add_screen("home", home_screen)
 screen_manager.add_screen("user_info", user_info_screen)
 screen_manager.add_screen("record_bmi", record_bmi_screen)
 
-screen_manager.switch_screen(name="home")
+screen_manager.switch_screen("home")
 
 root.bind("<Escape>", screen_manager.switch_screen("home"))
 
