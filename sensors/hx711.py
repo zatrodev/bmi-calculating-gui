@@ -21,7 +21,7 @@ class HX711:
         self.OFFSET = 1
         self.OFFSET_B = 1
         self.lastVal = int(0)
-        self.DEBUG_PRINTING = False
+        self.DEBUG_PRINTING = True
         self.byte_format = 'MSB'
         self.bit_format = 'MSB'
         self.set_gain(gain)
@@ -221,7 +221,9 @@ class HX711:
 
     def get_weight_A(self, times=3):
         value = self.get_value_A(times)
+        print(value)
         value = value / self.REFERENCE_UNIT
+        print(value)
         return value
 
     def get_weight_B(self, times=3):
@@ -330,7 +332,7 @@ class HX711:
         self.REFERENCE_UNIT_B = reference_unit
 
     def get_reference_unit(self):
-        return get_reference_unit_A()
+        return self.get_reference_unit_A()
 
     def get_reference_unit_A(self):
         return self.REFERENCE_UNIT
