@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 
 from interface.root import root
 from interface.screen_manager import screen_manager
@@ -24,7 +23,7 @@ screen_manager.switch_screen(name="home")
 root.bind("<Escape>", lambda e: screen_manager.switch_screen(
     name="home", event=e))
 
-ttk.Label(root, text="Press ESC to go back to home").pack(pady=10)
+tk.Label(root, text="Press ESC to go back to home").pack(pady=10)
 
 db.close()
 root.mainloop()
