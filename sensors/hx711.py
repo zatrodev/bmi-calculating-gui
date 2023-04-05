@@ -49,6 +49,8 @@ class HX711:
         self._debug_mode = False
         self._data_filter = self.outliers_filter  # default it is used outliers_filter
 
+        gpio.init()
+
         gpio.setcfg(self._pd_sck, gpio.OUTPUT)  # pin _pd_sck is output only
         gpio.setcfg(self._dout, gpio.INPUT)  # pin _dout is input only
         self.select_channel(select_channel)
