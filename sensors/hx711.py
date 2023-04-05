@@ -1,6 +1,7 @@
 import statistics as stat
 import time
 
+from pyA20.gpio import gpio
 
 class HX711:
     """
