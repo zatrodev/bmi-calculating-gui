@@ -1,7 +1,7 @@
 from hx711 import HX711
 from pyA20.gpio import port
 
-print("Hello")
+print("Hello World")
 
 try:
     hx711 = HX711(dout_pin=port.PA12, pd_sck_pin=port.PA11)
