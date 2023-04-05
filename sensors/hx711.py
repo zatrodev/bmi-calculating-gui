@@ -47,7 +47,7 @@ class HX711:
         self._scale_ratio_A_128 = 1  # scale ratio for channel A and gain 128
         self._scale_ratio_A_64 = 1  # scale ratio for channel A and gain 64
         self._scale_ratio_B = 1  # scale ratio for channel B
-        self._debug_mode = True
+        self._debug_mode = False
         self._data_filter = self.outliers_filter  # default it is used outliers_filter
 
         gpio.init()
@@ -57,7 +57,7 @@ class HX711:
 
         gpio.setcfg(self._pd_sck, gpio.OUTPUT)  # pin _pd_sck is output only
         gpio.setcfg(self._dout, gpio.INPUT)  # pin _dout is input only
-        
+
         self.select_channel(select_channel)
         self.set_gain_A(gain_channel_A)
 
