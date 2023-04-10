@@ -1,5 +1,4 @@
 from hx711 import HX711  # import the class HX711
-from pyA20.gpio import gpio
 
 try:
     # Create an object hx which represents your real hx711 chip
