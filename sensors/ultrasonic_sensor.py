@@ -2,8 +2,8 @@ from pyA20.gpio import gpio
 from pyA20.gpio import port
 import time
 
-TRIG = port.PA7
-ECHO = port.PA8
+TRIG = port.PA12
+ECHO = port.PA11
 
 gpio.init()
 
