@@ -1,9 +1,11 @@
 from hx711 import HX711  # import the class HX711
 
-hx = HX711(dout_pin=7, pd_sck_pin=8)
-
-
-def setup_sensor():
+try:
+    # Create an object hx which represents your real hx711 chip
+    # Required input parameters are only 'dout_pin' and 'pd_sck_pin'
+    hx = HX711(dout_pin=12, pd_sck_pin=11)
+    # measure tare and save the value as offset for current channel
+    # and gain selected. That means channel A and gain 128
     err = hx.zero()
     if err:
         raise ValueError('Tare is unsuccessful.')
