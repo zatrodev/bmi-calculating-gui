@@ -1,5 +1,8 @@
 from sensors.ultrasonic_sensor import get_distance
+from sensors.pressure_sensor import setup_sensor
+from sensors.pressure_sensor import get_weight_reading
 
+first_try = True
 
 
 class SensorManager:
@@ -9,4 +12,8 @@ class SensorManager:
 
     @staticmethod
     def get_weight():
-        return 60
+        if first_try:
+            setup_sensor()
+            first_try = False
+
+        return get_weight_reading()
