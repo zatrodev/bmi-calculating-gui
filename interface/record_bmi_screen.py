@@ -11,7 +11,7 @@ from sensors.sensor_manager import SensorManager
 PRIMARY_FONT_SIZE = 18
 SECONDARY_FONT_SIZE = 12
 
-HEIGHT_FROM_GROUND = 1.95
+HEIGHT_FROM_GROUND = 1.92
 
 
 class RecordBMIDisplay(tk.Frame):
