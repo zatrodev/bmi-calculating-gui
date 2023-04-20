@@ -1,4 +1,4 @@
-from hx711 import HX711  # import the class HX711
+from sensors.hx711 import HX711  # import the class HX711
 
 hx = HX711(dout_pin=7, pd_sck_pin=8)
 
