@@ -18,20 +18,19 @@ HEIGHT_FROM_GROUND = 1.92
 class GetBMIDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
-        self.db = DatabaseService()
 
         self.weight_label = tk.Label(self, text="")
-        self.weight_label.grid(row=6, column=0, padx=5, pady=5)
+        self.weight_label.grid(row=0, column=0, padx=5, pady=5)
 
         self.height_label = tk.Label(self, text="")
-        self.height_label.grid(row=7, column=0, padx=5, pady=5)
+        self.height_label.grid(row=1, column=0, padx=5, pady=5)
 
         self.bmi_label = tk.Label(self, text="")
-        self.bmi_label.grid(row=8, column=0, padx=5, pady=5)
+        self.bmi_label.grid(row=2, column=0, padx=5, pady=5)
 
         self.nutritional_guide_label = tk.Message(
             self, text="", width=750, justify="center")
-        self.nutritional_guide_label.grid(row=9, column=0, padx=5, pady=5)
+        self.nutritional_guide_label.grid(row=3, column=0, padx=5, pady=5)
 
         self.get_bmi()
 
@@ -39,6 +38,7 @@ class GetBMIDisplay(tk.Frame):
         self.height = HEIGHT_FROM_GROUND - SensorManager.get_height()
         self.weight = SensorManager.get_weight()
 
+        global user_info
         user_info = UserInfo(self.weight, self.height)
 
         self.weight_label.config(
@@ -53,7 +53,7 @@ class GetBMIDisplay(tk.Frame):
         self.nutritional_guide_label.config(
             text=user_info.nutritional_guide, font=("Arial Bold", SECONDARY_FONT_SIZE), width=750, justify="center")
         
-        self.bind("<Return>", screen_manager.switch_screen(name="record_bmi"))
+        self.bind("<Return>", lambda e: screen_manager.switch_screen(name="record_bmi", event=e))
         
         self.label_error = ttk.Label(self, text="Save BMI? Press [Enter] if yes, Press [ESC] if no.")
-        self.label_error.grid(row=10, column=0, sticky=tk.S, padx=5)
+        self.label_error.grid(row=5, column=0, sticky=tk.S, padx=5)

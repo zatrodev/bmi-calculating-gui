@@ -5,13 +5,9 @@ from db.user_info import UserInfo
 from db.sql_db import DatabaseService
 
 from interface.entry_with_placeholder import EntryWithPlaceholder
+from interface.get_bmi_screen import user_info
 
 from sensors.sensor_manager import SensorManager
-
-PRIMARY_FONT_SIZE = 18
-SECONDARY_FONT_SIZE = 12
-
-HEIGHT_FROM_GROUND = 1.92
 
 
 class RecordBMIDisplay(tk.Frame):
@@ -39,6 +35,11 @@ class RecordBMIDisplay(tk.Frame):
         self.label_error.grid(row=10, column=0, sticky=tk.S, padx=5)
 
     def record_bmi(self, event=""):
+        if user_info == "" or user_info == None:
+            print("Invalid user info")
+            return
+        
+        print(user_info)
         self.label_error["text"] = ""
 
         name = self.name_entry.get()
@@ -47,11 +48,12 @@ class RecordBMIDisplay(tk.Frame):
 
         print(name, age, lrn)
 
-        if (name == "Name" or age == "Age" or lrn == "LRN"):
+        if (name == "Name" or name == "" or age == "Age" or age == "" or lrn == "LRN" or lrn == ""):
             self.label_error["text"] = "Please fill all entry fields."
             return
 
-        user_info = UserInfo(name, age, lrn, self.weight,
-                             self.height)
+        user_info.name = name
+        user_info.age = age
+        user_info.lrn = lrn
 
         self.db.insert_user(user_info)
