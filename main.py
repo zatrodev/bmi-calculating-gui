@@ -26,8 +26,11 @@ screen_manager.switch_screen(name="home")
 root.bind("<Escape>", lambda e: screen_manager.switch_screen(
     name="home", event=e))
 
+root.bind("<Return>", lambda e: screen_manager.switch_screen(
+    name="record_bmi", event=e))
+
 tk.Label(root, text="Press [ESC] to go back to home").pack(
-    side=tk.BOTTOM, pady=10)
+    side=tk.BOTTOM, pady=(0, 10))
 
 db.close()
 root.mainloop()

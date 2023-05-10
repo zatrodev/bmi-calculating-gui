@@ -3,11 +3,13 @@ from tkinter import ttk
 
 from db.user_info import UserInfo
 
+from interface.root import root
 from interface.screen_manager import screen_manager
 
 from sensors.sensor_manager import SensorManager
 
 PRIMARY_FONT_SIZE = 18
+
 SECONDARY_FONT_SIZE = 12
 
 HEIGHT_FROM_GROUND = 1.92
@@ -52,8 +54,5 @@ class GetBMIDisplay(tk.Frame):
 
         self.nutritional_guide_label.config(
             text=user_info.nutritional_guide, font=("Arial Bold", SECONDARY_FONT_SIZE), width=750, justify="center")
-        
-        self.bind("<Return>", lambda e: screen_manager.switch_screen(name="record_bmi", event=e))
-        
-        self.label_error = ttk.Label(self, text="Save BMI? Press [Enter] if yes, Press [ESC] if no.")
-        self.label_error.grid(row=5, column=0, sticky=tk.S, padx=5)
+                
+        tk.Label(root, text="Press [ENTER] to save BMI").pack(side=tk.BOTTOM, pady=10) 
