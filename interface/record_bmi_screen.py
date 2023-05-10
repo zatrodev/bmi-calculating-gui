@@ -54,3 +54,6 @@ class RecordBMIDisplay(tk.Frame):
         BMI.user_info.lrn = lrn
 
         self.db.insert_user(BMI.user_info)
+
+        self.label_error = ttk.Label(self, text="DATA SAVED", foreground='green')
+        self.label_error.grid(row=9, column=0, sticky=tk.S, padx=5)
