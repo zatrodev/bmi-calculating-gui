@@ -1,13 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
 
-from db.user_info import UserInfo
 from db.sql_db import DatabaseService
 
+import interface.get_bmi_screen as BMI
 from interface.entry_with_placeholder import EntryWithPlaceholder
-from interface.get_bmi_screen import user_info
-
-from sensors.sensor_manager import SensorManager
 
 
 class RecordBMIDisplay(tk.Frame):
@@ -35,11 +32,11 @@ class RecordBMIDisplay(tk.Frame):
         self.label_error.grid(row=10, column=0, sticky=tk.S, padx=5)
 
     def record_bmi(self, event=""):
-        if user_info == "" or user_info == None:
+        if BMI.user_info == "" or BMI.user_info == None:
             print("Invalid user info")
             return
         
-        print(user_info)
+        print(BMI.user_info)
         self.label_error["text"] = ""
 
         name = self.name_entry.get()
@@ -52,8 +49,8 @@ class RecordBMIDisplay(tk.Frame):
             self.label_error["text"] = "Please fill all entry fields."
             return
 
-        user_info.name = name
-        user_info.age = age
-        user_info.lrn = lrn
+        BMI.user_info.name = name
+        BMI.user_info.age = age
+        BMI.user_info.lrn = lrn
 
-        self.db.insert_user(user_info)
+        self.db.insert_user(BMI.user_info)

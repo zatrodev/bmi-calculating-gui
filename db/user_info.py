@@ -1,11 +1,13 @@
 class UserInfo:
-    def __init__(self, weight, height, name="", age="", lrn=""):
-        self.name = name
-        self.age = age
-        self.lrn = lrn
-        self.weight = weight
-        self.height = height
-        self.bmi = weight / pow(height, 2)
+    def __init__(self):
+        self.name = ""
+        self.age = ""
+        self.lrn = ""
+        self.weight = 0
+        self.height = 0
+
+    def calculate_bmi(self):
+        self.bmi = self.weight / pow(self.height, 2)
         self.classification, self.nutritional_guide = self.classify_bmi()
 
     def classify_bmi(self):

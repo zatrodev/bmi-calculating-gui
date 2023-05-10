@@ -2,9 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from db.user_info import UserInfo
-from db.sql_db import DatabaseService
 
-from interface.entry_with_placeholder import EntryWithPlaceholder
 from interface.screen_manager import screen_manager
 
 from sensors.sensor_manager import SensorManager
@@ -14,6 +12,7 @@ SECONDARY_FONT_SIZE = 12
 
 HEIGHT_FROM_GROUND = 1.92
 
+user_info = UserInfo()
 
 class GetBMIDisplay(tk.Frame):
     def init(self, master, *args, **kwargs):
@@ -38,8 +37,9 @@ class GetBMIDisplay(tk.Frame):
         self.height = HEIGHT_FROM_GROUND - SensorManager.get_height()
         self.weight = SensorManager.get_weight()
 
-        global user_info
-        user_info = UserInfo(self.weight, self.height)
+        user_info.weight = self.weight
+        user_info.height = self.height
+        user_info.calculate_bmi()
 
         self.weight_label.config(
             text="Weight (kg): " + str(self.weight), font=("Arial", PRIMARY_FONT_SIZE))
