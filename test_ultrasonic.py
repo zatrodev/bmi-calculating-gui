@@ -1,4 +1,4 @@
 from sensors.ultrasonic_sensor import get_distance
 
 while (True):
-    print(get_distance())
+    print(1.92 - get_distance() - 0.22)
