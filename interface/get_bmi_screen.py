@@ -57,5 +57,5 @@ class GetBMIDisplay(tk.Frame):
         self.nutritional_guide_label.config(
             text=user_info.nutritional_guide, font=("Arial Bold", SECONDARY_FONT_SIZE), width=750, justify="center")
 
-        tk.Label(root, text="Press [SPACE] to save BMI").pack(
-            side=tk.BOTTOM, pady=10)
+        tk.Label(self, text="Press [ENTER] to save data").grid(
+            row=6, column=0, padx=5, pady=5)
