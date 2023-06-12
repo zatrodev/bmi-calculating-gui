@@ -1,10 +1,13 @@
 class UserInfo:
-    def __init__(self):
-        self.name = ""
-        self.age = ""
-        self.lrn = ""
-        self.weight = 0
-        self.height = 0
+    def __init__(self, name="", age="", lrn="", grade="", section="", weight=0, height=0):
+        self.name = name
+        self.age = age
+        self.lrn = lrn
+        self.grade = grade
+        self.section = section
+        self.weight = weight
+        self.height = height
+        self.sy = "2022-2023"
 
     def calculate_bmi(self):
         self.bmi = self.weight / pow(self.height, 2)
@@ -18,4 +21,4 @@ class UserInfo:
         elif self.bmi >= 25 and self.bmi < 30:
             return "Overweight", "For individuals who are overweight, the primary goal should be to achieve a modest weight loss of 5-10% of body weight. This can be achieved by reducing calorie intake and increasing physical activity. A diet that is low in saturated fats and added sugars, and rich in fruits, vegetables, and whole grains is recommended."
         elif self.bmi >= 30:
-            return "Obese", "Eat a variety of foods where you aim to consume a wide range of different foods, including fruits, vegetables, whole grains, lean proteins, and low-fat dairy products. Also, pay attention to how much you are eating and try to avoid overeating. Using smaller plates, bowls, and cups can help to control portion sizes. Try to avoid foods and drinks that are high in sugar, salt, and fat, as they can contribute to weight gain. Examples include sugary drinks, fried foods, and snacks like chips and chocolate bars. Choose healthier cooking methods such as baking, grilling, steaming, or boiling instead of frying to reduce the use of oils. Additionally, drink plenty of water and limit sugary or alcoholic drinks.      ."
+            return "Obese", "Eat a variety of foods where you aim to consume a wide range of different foods, including fruits, vegetables, whole grains, lean proteins, and low-fat dairy products. Also, pay attention to how much you are eating and try to avoid overeating. Using smaller plates, bowls, and cups can help to control portion sizes. Try to avoid foods and drinks that are high in sugar, salt, and fat, as they can contribute to weight gain. Examples include sugary drinks, fried foods, and snacks like chips and chocolate bars. Choose healthier cooking methods such as baking, grilling, steaming, or boiling instead of frying to reduce the use of oils. Additionally, drink plenty of water and limit sugary or alcoholic drinks."

@@ -1,11 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
 
 from db.user_info import UserInfo
-
-from interface.root import root
-from interface.screen_manager import screen_manager
-
 from sensors.sensor_manager import SensorManager
 
 PRIMARY_FONT_SIZE = 18
